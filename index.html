@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador de Texto-Alula</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <header>
+        <img class="logoalura" src="logoAlura.png" alt="logoAlura.png">
+        <h1 class="tituloprincipal">Decodificador de texto</h1>
+    </header>
+
+    <main>
+        <section class="input">
+            <textarea class="textarea" cols="41" rows="4" placeholder="Digite seu texto"></textarea>
+
+            <div class="informacao">
+                <h6>Apenas letras minúsculas e sem acento.</h6>
+            </div>
+
+            <div class="botoes">
+                <button  onclick="criptografar()" class="btn-cripitografar">Cripitografar</button>
+                <button onclick="descriptografar()" class="btn-descripitografar">Descripitografar</button>
+            </div>
+
+        </section>
+        
+        <section>
+            <textarea class="mensagem" cols="20" rows="10" placeholder="digite um texto que você deseja Cripitografar ou Descripitografar."></textarea>
+            <button class="btn-copiar" onclick="copiar()">Copiar</button>
+        </section>
+    </main>
+
+    <footer></footer>
+
+    
+    
+</body>
+</html>
+<script>
+    function criptografar() {
+    var texto = document.querySelector('.textarea').value;
+  
+    var resCripto = texto.replace(/e/g, "enter").replace(/i/g, "imes").replace(/a/g, "ai")
+      .replace(/o/g, "ober").replace(/u/g, "ufat");
+  
+    document.querySelector('.mensagem').value = resCripto;
+  }
+  
+  function descriptografar() {
+    var texto = document.querySelector('.textarea').value;
+  
+    var resultDescripto = texto.replace(/enter/g, "e").replace(/imes/g, "i").replace(/ai/g, "a")
+      .replace(/ober/g, "o").replace(/ufat/g, "u");
+  
+    document.querySelector('.mensagem').value = resultDescripto;
+  }
+  
+  function copiar() {
+    var mensagem = document.querySelector('.mensagem');
+    mensagem.select();
+    document.execCommand('copy');
+  }
+</script>
